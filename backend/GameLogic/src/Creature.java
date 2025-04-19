@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 //Represents a creature in the game
 public class Creature {
     private static final int NUM_MOVES = 4;
 
-    private CreatureType type;
+    private CreatureType[] type;
 
     private int id;
 
@@ -17,11 +18,8 @@ public class Creature {
 
     Move[] moves;
 
-    boolean isDead = true; //default true
-
-    public Creature(CreatureType type, int id,
+    public Creature(CreatureType[] type, int id,
                     String name, Stats stats,
-                    ArrayList<Move> statusEffect,
                     Move[] moves) {
         this.type = type;
         this.id = id;
@@ -31,18 +29,16 @@ public class Creature {
         this.moves = moves;
     }
 
-    public Creature(CreatureType type, int id,
+    public Creature(CreatureType[] type, int id,
                     String name, Stats stats,
                     ArrayList<Move> statusEffect,
-                    Move[] moves,
-                    boolean isDead) {
+                    Move[] moves){
         this.type = type;
         this.id = id;
         this.name = name;
         this.stats = stats;
         this.statusEffect = statusEffect;
         this.moves = moves;
-        this.isDead = isDead;
     }
 
     //Copy constructor
@@ -50,19 +46,17 @@ public class Creature {
         this.type = other.type;
         this.id = other.id;
         this.name = other.name;
-        this.stats = other.stats;
+        this.stats = new Stats(other.stats);
         this.statusEffect = other.statusEffect;
         this.moves = other.moves;
-        this.isDead = other.isDead;
+
     }
 
+    //TODO: implement
     public boolean isDead() {
-        return isDead;
+        return false;
     }
 
-    public void setDead(boolean dead) {
-        isDead = dead;
-    }
 
     public Stats getStats() {
         return stats;
@@ -86,6 +80,50 @@ public class Creature {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Move[] getMoves() {
+        return moves;
+    }
+    public Move getMove(int index) {
+        return moves[index];
+    }
+
+    public void addStatusEffect(Move status) {
+        this.statusEffect.add(status);
+    }
+
+    public void multiplyDefense(float multiplier) {
+        stats.setDefense((int) (stats.getDefense()*multiplier));
+    }
+
+    public void multiplyAttack(float multiplier) {
+        stats.setAttack((int) (stats.getAttack()*multiplier));
+    }
+
+    public void applyDamage(int dmg) {
+            stats.setHp(stats.getHp() - (int)(dmg));
+    }
+
+
+    @Override
+    public String toString() {
+
+        String[] names = new String[moves.length];
+        int i = 0;
+        for(Move move : moves) {
+            names[i] = move.getName();
+            i++;
+        }
+
+        return "Creature{" +
+                ", moves=" + Arrays.toString(names) +
+                ", statusEffect=" + statusEffect +
+                ", stats=" + stats +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                ", type=" + Arrays.toString(type) +
+                '}';
     }
 }
 

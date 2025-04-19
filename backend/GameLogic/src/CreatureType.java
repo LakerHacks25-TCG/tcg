@@ -1,3 +1,3 @@
 public enum CreatureType {
-    FIRE, ICE;
+    NORMAL, WATER, FIRE, ICE, ELECTRIC;
 }

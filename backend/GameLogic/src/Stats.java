@@ -8,12 +8,23 @@ public class Stats {
         this.attack = attack;
     }
 
+    public Stats(Stats stats) {
+        this.hp = stats.hp;
+        this.maxHp = stats.maxHp;
+        this.defense  = stats.defense;
+        this.attack = stats.attack;
+    }
+
     public int getAttack() {
         return attack;
     }
 
     public void setAttack(int attack) {
-        this.attack = attack;
+        if(attack < 1)
+            this.attack = 1;
+        else {
+            this.attack = attack;
+        }
     }
 
     public int getDefense() {
@@ -21,7 +32,11 @@ public class Stats {
     }
 
     public void setDefense(int defense) {
-        this.defense = defense;
+        if(defense < 1)
+            this.defense = 1;
+        else {
+            this.defense = defense;
+        }
     }
 
     public int getHp() {
@@ -29,10 +44,24 @@ public class Stats {
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
+        if(hp < 0)
+            this.hp = 0;
+        else {
+            this.hp = hp;
+        }
     }
 
     public int getMaxHp() {
         return maxHp;
+    }
+
+    @Override
+    public String toString() {
+        return "Stats{" +
+                "hp=" + hp +
+                ", defense=" + defense +
+                ", attack=" + attack +
+                ", maxHp=" + maxHp +
+                '}';
     }
 }
