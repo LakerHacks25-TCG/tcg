@@ -4,7 +4,7 @@
       "id": 1,
       "name": "fireball",
       "description": "lvl 3 most important spell",
-      "type": "FIRE",
+      "type": "NORMAL",
       "difficulty": 2,
       "damage": 3
     },
@@ -15,7 +15,110 @@
       "type": "NORMAL",
       "difficulty": 1,
       "othStatId": 103
+    },
+    {
+      "id": 3,
+      "name": "victory screech",
+      "description": "lowers enemy defense",
+      "type": "NORMAL",
+      "difficulty": 2,
+      "othDefMul": 0.8
+    },
+    {
+      "id": 4,
+      "name": "Ice Darts",
+      "description": "Summons 4 ice darts",
+      "type": "NORMAL",
+      "difficulty": 3,
+      "damage": 4
+    },
+    {
+      "id": 5,
+      "name": "Thermal Shock",
+      "description": "Uses fire and ice to shock opponents",
+      "type": "NORMAL",
+      "difficulty": 4,
+      "damage": 5,
+      "othStatId": 104
+    }, {
+      "id": 6,
+      "name": "Flame Attack",
+      "description": "Sets a wall of flame under the enemy",
+      "type": "NORMAL",
+      "difficulty": 1,
+      "damage": 1,
+      "othStatId": 105
+    }, {
+      "id": 7,
+      "name": "Ivy Wrap",
+      "description": "Wraps opponents in poisonous vines",
+      "type": "NORMAL",
+      "difficulty": 2,
+      "damage": 0,
+      "othStatId": 103
+    }, {
+      "id": 8,
+      "name": "Plant Scythe",
+      "description": "User summons a strong leaf blade that slices the opponent",
+      "type": "NORMAL",
+      "difficulty": 3,
+      "damage": 3
+    }, {
+      "id": 9,
+      "name": "Wind Force",
+      "description": "Summons the spirit of the forest to bless the user with bonus attack",
+      "type": "NORMAL",
+      "difficulty": 4,
+      "othAtkMul": 1.6
+    }, {
+      "id": 10,
+      "name": "Pine Typhoon",
+      "description": "User spins pine needles to create a typhoon",
+      "type": "NORMAL",
+      "difficulty": 1,
+      "damage": 2
+    }, {
+      "id": 11,
+      "name": "Pearl shooter",
+      "description": "User hurls smooth rocks to attack opponent",
+      "type": "NORMAL",
+      "difficulty": 1,
+      "damage": 2
+    }, {
+      "id": 12,
+      "name": "Roaring rapids",
+      "description": "User summons the force of a waterfall to fall upon the opponent",
+      "type": "NORMAL",
+      "difficulty": 3,
+      "damage": 1,
+      "othStatId": 106
+    }, {
+      "id": 13,
+      "name": "Moss heal",
+      "description": "Restores 15 HP",
+      "type": "NORMAL",
+      "difficulty": 4,
+      "heal": 15,
+      "othDefMult": 0.95
+    }, {
+      "id": 14,
+      "name": "Moss heal",
+      "description": "Restores 15 HP",
+      "type": "NORMAL",
+      "difficulty": 4,
+      "heal": 15,
+      "othDefMult": 0.95
+    }, {
+      "id": 15,
+      "name": "Swamp",
+      "description": "boosts defense",
+      "type": "NORMAL",
+      "difficulty": 2,
+      "othDefMult": 1.4
     }
+
+
+
   ],
   "statuses": [
     {
@@ -25,6 +128,27 @@
       "type": "NORMAL",
       "difficulty": 1,
       "heal": -2
+    },{
+      "id": 104,
+      "name": "shocked",
+      "description": "take 1 damage each turn",
+      "type": "NORMAL",
+      "difficulty": 1,
+      "heal": -1
+    }, {
+      "id": 105,
+      "name": "burned",
+      "description": "take 2 damage each turn",
+      "type": "NORMAL",
+      "difficulty": 1,
+      "heal": -2
+    }, {
+      "id": 106,
+      "name": "concussion",
+      "description": "lowers defense each turn",
+      "type": "NORMAL",
+      "difficulty": 1,
+      "othDefMul": 0.9
     }
   ]
 }
