@@ -17,6 +17,8 @@
 		"vite": "^6.2.5"
 	},
 	"dependencies": {
-		"@stomp/stompjs": "^7.1.1"
+		"@stomp/stompjs": "^7.1.1",
+		"@tailwindcss/vite": "^4.1.4",
+		"tailwindcss": "^4.1.4"
 	}
 }

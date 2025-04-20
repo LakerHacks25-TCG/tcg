@@ -32,12 +32,10 @@ public class WebSocketController {
 
     @MessageMapping("/turn")
     public void takeTurn(@Payload Player.Turn turn, Principal user) {
-        System.out.println("hello");
         System.out.println(user);
         Optional<Player> playerOpt = playerRepository.findByName(user.getName());
         if (playerOpt.isEmpty())
             return;
-        System.out.println("player exists");
         Player player = playerOpt.get();
         player.setTurn(turn);
         player.ready = true;

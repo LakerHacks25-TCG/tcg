@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import quickmath.Config;
-import quickmath.model.Creature;
-import quickmath.model.Move;
-import quickmath.model.Player;
-import quickmath.model.Room;
+import quickmath.model.*;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -30,12 +27,40 @@ public class GameService {
     }
 
     @Transactional
+    void applyStatus(Move status, Creature creature) {
+        var cs = creatureStatusRepository.getByIds(creature.id, status.id).orElse(new CreatureStatus(creature, status));
+        cs.stacks++;
+        creatureStatusRepository.save(cs);
+    }
+
+    @Transactional
+    void doMove(Move move, Creature user, Creature other, float multiplier) {
+        move.doMove(user, other, multiplier);
+        if (move.userStatusEffect != null)
+            applyStatus(move.userStatusEffect, user);
+        if (move.otherStatusEffect != null)
+            applyStatus(move.otherStatusEffect, other);
+        creatureRepository.save(user);
+        creatureRepository.save(other);
+    }
+
+    @Transactional
     public TurnGameStateDTO doTurn(Long roomId) {
         Room room = roomRepository.findById(roomId).orElseThrow();
         Player player1 = room.player1, player2 = room.player2;
         assert player2 != null;
-        System.out.println("Player 1 used move " + player1.turnMoveId + " with speed " + player1.turnSpeed + " and modifier " + player1.turnMultiplier);
-        System.out.println("Player 2 used move " + player2.turnMoveId + " with speed " + player2.turnSpeed + " and modifier " + player2.turnMultiplier);
+
+        Player first = player1.turnSpeed < player2.turnSpeed ? player1 : player2;
+        Player second = player1.turnSpeed < player2.turnSpeed ? player2 : player1;
+        Move firstMove = first.creature.moves.stream().filter(m -> m.id == first.turnMoveId).findFirst().orElseThrow();
+        Move secondMove = second.creature.moves.stream().filter(m -> m.id == second.turnMoveId).findFirst().orElseThrow();
+
+        doMove(firstMove, first.creature, second.creature, first.turnMultiplier);
+        doMove(secondMove, second.creature, first.creature, second.turnMultiplier);
+        for (var creatureStatus : second.creature.statuses)
+            doMove(creatureStatus.status, second.creature, first.creature, second.turnMultiplier);
+        for (var creatureStatus : first.creature.statuses)
+            doMove(creatureStatus.status, first.creature, second.creature, first.turnMultiplier);
         return new TurnGameStateDTO(new Creature.CreatureStateDTO(player1.creature), new Creature.CreatureStateDTO(player2.creature));
     }
 

@@ -6,7 +6,7 @@
       "description": "lvl 3 most important spell",
       "type": "FIRE",
       "difficulty": 2,
-      "damage": 30
+      "damage": 3
     },
     {
       "id": 2,

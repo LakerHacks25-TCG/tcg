@@ -26,7 +26,7 @@ public class Creature {
     @JoinTable(name = "creature_moves",
             joinColumns = @JoinColumn(name = "move_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "creature_id", referencedColumnName = "id"))
-    Set<Move> moves;
+    public Set<Move> moves;
 
     protected Creature() {}
     public Creature(String name, CreatureType t,int maxHp, int initialDefense, int initialAttack, Set<Move> moves) {
@@ -50,7 +50,7 @@ public class Creature {
     public void setDefense(int newDefense) { defense = Math.max(newDefense, 1); }
     public void setAttack(int newAttack) { attack = Math.max(newAttack, 1); }
 
-    public record FullCreatureStateDTO(String name, CreatureType type, int maxHp, int defense, int attack, Set<Long> move) {
+    public record FullCreatureStateDTO(String name, CreatureType type, int maxHp, int defense, int attack, Set<Long> moveIds) {
         public FullCreatureStateDTO(Creature creature) {
             this(creature.name, creature.type, creature.maxHp, creature.defense, creature.attack, creature.moves.stream().map(move -> move.id).collect(Collectors.toSet()));
         }

@@ -28,4 +28,6 @@ public class CreatureStatus {
     @ManyToOne
     @MapsId("statusId")
     public Move status;
+
+    public int stacks;
 }

@@ -3,10 +3,12 @@
 	import { backendURL } from '$lib/config';
     import { isLoggedIn, getJson, postAndGetJson, get, post } from '$lib/netutil';
 	import { Client } from '@stomp/stompjs';
+	import { json } from '@sveltejs/kit';
 
-    let roomName = $state(''), username = $state('')
+    let roomName = $state(''), username = $state(''), otherUsername = $state('')
 
     let started = $state(false)
+    let me = $state({}), you = $state({})
     let stompClient = $state(null)
     $effect(async () => {
         if (!await isLoggedIn()) {
@@ -18,11 +20,28 @@
             onConnect: () => {
                 console.log('connected')
                 stompClient.subscribe('/user/queue/start', msg => {
-                    started = true;
                     console.log(msg.body)
+                    const data = JSON.parse(msg.body)
+                    console.log('hi')
+                    me = data.me
+                    me.statuses = []
+                    you = data.you
+                    you.statuses = []
+                    otherUsername = data.yourName
+                    started = true;
                 })
                 stompClient.subscribe('/user/queue/turn-end', msg => {
-                    console.log(msg.body)
+                    const data = JSON.parse(msg.body)
+                    me.hp = data.me.hp
+                    me.defense = data.me.defense
+                    me.attack = data.me.attack
+                    me.statuses = data.me.statuses
+
+                    you.hp = data.you.hp
+                    you.defense = data.you.defense
+                    you.attack = data.you.attack
+                    you.statuses = data.you.statuses
+                    console.log(me)
                 })
                 post('/rooms/start')
             },
@@ -48,7 +67,7 @@
             stompClient.publish({
                 destination: '/app/turn',
                 body: JSON.stringify({
-                    moveId: 1,
+                    moveId: 2,
                     speed: 3,
                     multiplier: 1
                 })
