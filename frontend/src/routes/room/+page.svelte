@@ -6,6 +6,7 @@
 	import { json } from '@sveltejs/kit';
     import hpBar from "$lib/assets/hpBarFinal.png";
     import { addition, subtraction, multiplication, division } from "$lib/assets/mathProblems"
+    import moveSet from "$lib/assets/moves.json"
 
     let roomName = $state(''), username = $state(''), otherUsername = $state('')
     let question = $state(null)
@@ -112,10 +113,10 @@
         <div><button class="mathbutton" onclick={() => chooseAnswer('d', 3)}>{question ? question['d'] : ''}</button></div>
     </div>
         <div class="twoBoxLeft">
-        <div><button class="mathbutton" onclick={() => chooseQuestion(addition)}>+</button></div>
-        <div><button class="mathbutton" onclick={() => chooseQuestion(subtraction)}>-</button></div>
-        <div><button class="mathbutton" onclick={() => chooseQuestion(multiplication)}>&#x2715;</button></div>
-        <div><button class="mathbutton" onclick={() => chooseQuestion(division)}>&#247;</button></div>
+        <div><button class="mathbutton" onclick={() => chooseQuestion(addition)}>{me ? moveSet.moves.filter(m => m.id == me.moveIds[0])[0].name : ''}</button></div>
+        <div><button class="mathbutton" onclick={() => chooseQuestion(subtraction)}>{me ? moveSet.moves.filter(m => m.id == me.moveIds[1])[0].name : ''}</button></div>
+        <div><button class="mathbutton" onclick={() => chooseQuestion(multiplication)}>{me ? moveSet.moves.filter(m => m.id == me.moveIds[2])[0].name : ''}</button></div>
+        <div><button class="mathbutton" onclick={() => chooseQuestion(division)}>{me ? moveSet.moves.filter(m => m.id == me.moveIds[3])[0].name : ''}</button></div>
     </div>
     <div>c5</div>
     <div>d5</div>
