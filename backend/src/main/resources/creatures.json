@@ -2,12 +2,28 @@
   "creatures": [
     {
       "id": 1,
-      "name": "Fire Penguin",
-      "type": "FIRE",
+      "name": "Roxalytal",
+      "type": "NORMAL",
       "maxHp": 80,
       "defense": 3,
       "attack": 4,
-      "moveIds": [ 1, 2 ]
+      "moveIds": [ 11, 12, 13, 14 ]
+    }, {
+      "id": 2,
+      "name": "Petal Hop",
+      "type": "NORMAL",
+      "maxHp": 80,
+      "defense": 3,
+      "attack": 4,
+      "moveIds": [ 7, 8, 9, 10 ]
+    }, {
+      "id": 3,
+      "name": "Pyroquil",
+      "type": "NORMAL",
+      "maxHp": 80,
+      "defense": 3,
+      "attack": 4,
+      "moveIds": [ 3, 4, 5, 6 ]
     }
   ]
 }
