@@ -63,7 +63,7 @@ public class Move {
             float damage = (int) (baseDamage * multiplier * 1.33f * user.getAttack() / other.getDefense());
             other.setHp(other.getHp() - (int)(damage * CreatureType.calculateAdvantage(other.type, type)));
             other.setAttack((int) (other.getAttack() * otherAttackMultiplier));
-            other.setAttack((int) (other.getDefense() * otherDefenseMultiplier));
+            other.setDefense((int) (other.getDefense() * otherDefenseMultiplier));
         }
         user.setAttack((int) (user.getAttack() * userAttackMultiplier));
         user.setDefense((int) (user.getDefense() * userDefenseMultiplier));
