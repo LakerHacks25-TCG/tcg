@@ -41,6 +41,6 @@
     }
 </script>
 
-<input type="text" bind:value={roomName}>
+<input class="textbox-input" type="text" bind:value={roomName}>
 <button onclick={create}>Create Room</button>
 <button onclick={join}>Join Room</button>

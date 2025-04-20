@@ -26,8 +26,10 @@
     //                 const data = JSON.parse(msg.body)
     //                 console.log('hi')
     //                 me = data.me
+    //                me.hp = me.maxHp
     //                 me.statuses = []
     //                 you = data.you
+    //                you.hp = you.maxHp
     //                 you.statuses = []
     //                 otherUsername = data.yourName
     //                 started = true;
