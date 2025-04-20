@@ -66,13 +66,14 @@
         }
     })
 
-    const doTurn = multiplier => {
+    const doTurn = (multiplier, moveIndex) => {
         if (stompClient && stompClient.connected) {
             console.log("sending turn")
+            console.log(me)
             stompClient.publish({
                 destination: '/app/turn',
                 body: JSON.stringify({
-                    moveId: 2,
+                    moveId: me.moveIds[moveIndex],
                     speed: 3,
                     multiplier
                 })
@@ -84,11 +85,11 @@
         const choice = Math.floor(Math.random() * problemSet.length)
         question = problemSet[choice];
     }
-    const chooseAnswer = choice => {
+    const chooseAnswer = (choice, moveIndex) => {
         if (question[choice] == question.answer)
-            doTurn(2)
+            doTurn(2, moveIndex)
         else
-            doTurn(.5)
+            doTurn(.5, moveIndex)
         question = null
     }
 </script>
@@ -105,10 +106,10 @@
     <div class="hpBoxRight"></div>
     <div class="twoBoxLeft">{question ? question['equation'] : ''}</div>
     <div class="twoBoxRight">
-        <div><button class="mathbutton" onclick={() => chooseAnswer('a')}>{question ? question['a'] : ''}</button></div>
-        <div><button class="mathbutton" onclick={() => chooseAnswer('b')}>{question ? question['b'] : ''}</button></div>
-        <div><button class="mathbutton" onclick={() => chooseAnswer('c')}>{question ? question['c'] : ''}</button></div>
-        <div><button class="mathbutton" onclick={() => chooseAnswer('d')}>{question ? question['d'] : ''}</button></div>
+        <div><button class="mathbutton" onclick={() => chooseAnswer('a', 0)}>{question ? question['a'] : ''}</button></div>
+        <div><button class="mathbutton" onclick={() => chooseAnswer('b', 1)}>{question ? question['b'] : ''}</button></div>
+        <div><button class="mathbutton" onclick={() => chooseAnswer('c', 2)}>{question ? question['c'] : ''}</button></div>
+        <div><button class="mathbutton" onclick={() => chooseAnswer('d', 3)}>{question ? question['d'] : ''}</button></div>
     </div>
         <div class="twoBoxLeft">
         <div><button class="mathbutton" onclick={() => chooseQuestion(addition)}>+</button></div>
