@@ -59,7 +59,41 @@
 
 .twoBoxLeft{
     grid-column: 1 / span 2;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 45% 45%;
+
+}
+
+.hpBoxLeft{
+    grid-column: 1 / span 2;
+    justify-content: center;
+
+}
+.hpBoxRight{
+    grid-column: 1 / span 2;
+    justify-content: center;
+
 }
 .twoBoxRight{
     grid-column: 3 / span 2;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 45% 45%;
+}
+
+.squareBoxLeft{
+    grid-column: 1 / span 2;
+    grid-row: span 2;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 45% 45%;
+}
+
+.squareBoxRight{
+    grid-column: 3 / span 2;
+    grid-row: span 2;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 45% 45%;
 }
