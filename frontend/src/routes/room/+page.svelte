@@ -4,6 +4,8 @@
     import { isLoggedIn, getJson, postAndGetJson, get, post } from '$lib/netutil';
 	import { Client } from '@stomp/stompjs';
 	import { json } from '@sveltejs/kit';
+    import hpBar from "$lib/assets/hpBarFinal.png";
+
 
     // let roomName = $state(''), username = $state(''), otherUsername = $state('')
 
@@ -82,10 +84,10 @@
 
 {:else} -->
 <div class="container">
-    <div class="twoBoxLeft">Player HP</div>
+    <div class="hpBoxLeft"><img src={hpBar} alt="playerHPBar" style="width 125%; height 125%"/></div>
     <div class="squareBoxRight">Enemy sprite</div>
     <div class="squareBoxLeft">Player sprite</div>
-    <div class="twoBoxRight">Enemy HP</div>
+    <div class="hpBoxRight"></div>
     <div class="twoBoxLeft">Question box</div>
     <div class="twoBoxRight">
         <div><button class="mathbutton" onclick={() => count++}>Answer A</button></div>
