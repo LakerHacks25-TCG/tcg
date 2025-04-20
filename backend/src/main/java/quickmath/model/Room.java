@@ -11,11 +11,11 @@ public class Room {
 
     public String name;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "player1_id")
     public Player player1;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "player2_id")
     public @Nullable Player player2;
 

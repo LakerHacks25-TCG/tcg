@@ -21,7 +21,7 @@
     })
 
     async function create() {
-        const res = await post(`/rooms?name=${roomName}`)
+        const res = await post(`/rooms?name=${roomName}&creature-id=1`)
         if (res.ok)
             goto('/room')
         else
@@ -29,7 +29,7 @@
     }
 
     async function join() {
-        const res = await post(`/rooms/${roomName}/join`)
+        const res = await post(`/rooms/${roomName}/join?creature-id=1`)
         if (res.ok)
             goto('/room')
         else if (res.status == 404)

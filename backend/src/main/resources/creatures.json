@@ -1,0 +1,13 @@
+{
+  "creatures": [
+    {
+      "id": 1,
+      "name": "Fire Penguin",
+      "type": "FIRE",
+      "maxHp": 80,
+      "defense": 3,
+      "attack": 4,
+      "moveIds": [ 1, 2 ]
+    }
+  ]
+}

@@ -18,6 +18,10 @@ public class Player {
     @JoinColumn(name = "room_id")
     public Room room;
 
+    @OneToOne
+    @JoinColumn(name = "creature_id")
+    public Creature creature;
+
     public void setTurn(Turn turn) {
         turnMoveId = turn.moveId;
         turnSpeed = turn.speed;

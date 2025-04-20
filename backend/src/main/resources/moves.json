@@ -1,0 +1,30 @@
+{
+  "moves": [
+    {
+      "id": 1,
+      "name": "fireball",
+      "description": "lvl 3 most important spell",
+      "type": "FIRE",
+      "difficulty": 2,
+      "damage": 30
+    },
+    {
+      "id": 2,
+      "name": "poison",
+      "description": "applies poison",
+      "type": "NORMAL",
+      "difficulty": 1,
+      "othStatId": 103
+    }
+  ],
+  "statuses": [
+    {
+      "id": 103,
+      "name": "poisoned",
+      "description": "take 2 damage each turn",
+      "type": "NORMAL",
+      "difficulty": 1,
+      "heal": -2
+    }
+  ]
+}
