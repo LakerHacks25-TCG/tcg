@@ -99,14 +99,14 @@
       "type": "NORMAL",
       "difficulty": 4,
       "heal": 15,
-      "othDefMult": 0.95
+      "othDefMul": 0.95
     }, {
       "id": 14,
       "name": "Swamp",
       "description": "boosts defense",
       "type": "NORMAL",
       "difficulty": 2,
-      "othDefMult": 1.4
+      "othDefMul": 1.4
     }
 
 
