@@ -18,9 +18,9 @@ public class Move {
     float userDefenseMultiplier, userAttackMultiplier;
     float otherDefenseMultiplier, otherAttackMultiplier;
 
-    @OneToOne
+    @ManyToOne
     public @Nullable Move userStatusEffect;
-    @OneToOne
+    @ManyToOne
     public @Nullable Move otherStatusEffect;
 
     protected Move() {}

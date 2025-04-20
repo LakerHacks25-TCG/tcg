@@ -18,7 +18,7 @@
 // 	}
 // ]
 
-addition =
+export const addition =
 [
 	{
 		"equation" : "2+2=",
@@ -27,7 +27,7 @@ addition =
 		"c" : "6",
 		"d" : "3",
 		"answer" : "4"
-	}
+	},
 	{
 		"equation" : "5+5=",
 		"a" : "3",
@@ -35,7 +35,7 @@ addition =
 		"c" : "10",
 		"d" : "0",
 		"answer" : "10"
-	}
+	},
 	{
 		"equation" : "6+7=",
 		"a" : "5",
@@ -43,7 +43,7 @@ addition =
 		"c" : "13",
 		"d" : "3",
 		"answer" : "13"
-	}
+	},
 	{
 		"equation" : "1+1",
 		"a" : "5",
@@ -54,7 +54,7 @@ addition =
 	}
 ]
 
-subtraction =
+export const subtraction =
 [
 	{
 		"equation" : "6-2=",
@@ -63,7 +63,7 @@ subtraction =
 		"c" : "3",
 		"d" : "7",
 		"answer" : "4"
-	}
+	},
 	{
 		"equation" : "4-5=",
 		"a" : "-3",
@@ -71,7 +71,7 @@ subtraction =
 		"c" : "-1",
 		"d" : "0",
 		"answer" : "-1"
-	}
+	},
 	{
 		"equation" : "6-1=",
 		"a" : "5",
@@ -79,7 +79,7 @@ subtraction =
 		"c" : "7",
 		"d" : "3",
 		"answer" : "5"
-	}
+	},
 	{
 		"equation" : "1-1",
 		"a" : "5",
@@ -89,34 +89,34 @@ subtraction =
 		"answer" : "0"
 	}
 ]
-multiplication =
+export const multiplication =
 [
 	{
-		"equation" : "6[multiplication symbol goes here]2=",
+		"equation" : "6*2=",
 		"a" : "4",
 		"b" : "20",
 		"c" : "3",
 		"d" : "7",
 		"answer" : "3"
-	}
+	},
 	{
-		"equation" : "4[multiplication symbol goes here]5=",
+		"equation" : "4*5=",
 		"a" : "-3",
 		"b" : "35",
-		"c" : "45",
+		"c" : "20",
 		"d" : "0",
-		"answer" : "40"
-	}
+		"answer" : "20"
+	},
 	{
-		"equation" : "4[multiplication symbol goes here]1=",
+		"equation" : "4*1=",
 		"a" : "6",
 		"b" : "4",
 		"c" : "7",
 		"d" : "3",
 		"answer" : "4"
-	}
+	},
 	{
-		"equation" : "10[multiplication symbol goes here]10",
+		"equation" : "10*10",
 		"a" : "5",
 		"b" : "2",
 		"c" : "0",
@@ -124,34 +124,34 @@ multiplication =
 		"answer" : "100"
 	}
 ]
-division =
+export const division =
 [
 	{
-		"equation" : "6[divison symbol goes here]2=",
+		"equation" : "6/2=",
 		"a" : "4",
 		"b" : "2",
 		"c" : "3",
 		"d" : "9",
-		"answer" : "3"
-	}
+		"answer" : "2"
+	},
 	{
-		"equation" : "10[divison symbol goes here]5=",
+		"equation" : "10/5=",
 		"a" : "-3",
 		"b" : "2",
 		"c" : "-1",
 		"d" : "0",
 		"answer" : "2"
-	}
+	},
 	{
-		"equation" : "6[divison symbol goes here]1=",
+		"equation" : "6/1=",
 		"a" : "3",
 		"b" : "5",
 		"c" : "7",
 		"d" : "6",
 		"answer" : "6"
-	}
+	},
 	{
-		"equation" : "1[divison symbol goes here]1",
+		"equation" : "1/1",
 		"a" : "5",
 		"b" : "1",
 		"c" : "9",

@@ -102,15 +102,20 @@
       "othDefMul": 0.95
     }, {
       "id": 14,
+      "name": "Moss heal",
+      "description": "Restores 15 HP",
+      "type": "NORMAL",
+      "difficulty": 4,
+      "heal": 15,
+      "othDefMul": 0.95
+    }, {
+      "id": 15,
       "name": "Swamp",
       "description": "boosts defense",
       "type": "NORMAL",
       "difficulty": 2,
       "othDefMul": 1.4
     }
-
-
-
   ],
   "statuses": [
     {
