@@ -46,12 +46,17 @@ public class GameService {
 
     @Transactional
     public TurnGameStateDTO doTurn(Long roomId) {
+        //Create room
         Room room = roomRepository.findById(roomId).orElseThrow();
         Player player1 = room.player1, player2 = room.player2;
         assert player2 != null;
 
+        //Determine move order by referencing the faster player as first, slower player as second
+        //Lower 'speed' (time) is fastest
         Player first = player1.turnSpeed < player2.turnSpeed ? player1 : player2;
         Player second = player1.turnSpeed < player2.turnSpeed ? player2 : player1;
+
+
         Move firstMove = first.creature.moves.stream().filter(m -> m.id == first.turnMoveId).findFirst().orElseThrow();
         Move secondMove = second.creature.moves.stream().filter(m -> m.id == second.turnMoveId).findFirst().orElseThrow();
 
