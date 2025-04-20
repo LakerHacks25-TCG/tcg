@@ -105,7 +105,7 @@ multiplication =
 		"b" : "35",
 		"c" : "45",
 		"d" : "0",
-		"answer" : "45"
+		"answer" : "40"
 	}
 	{
 		"equation" : "4[multiplication symbol goes here]1=",
@@ -132,7 +132,7 @@ division =
 		"b" : "2",
 		"c" : "3",
 		"d" : "9",
-		"answer" : "2"
+		"answer" : "3"
 	}
 	{
 		"equation" : "10[divison symbol goes here]5=",
